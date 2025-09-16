@@ -1,0 +1,79 @@
+# 应用程序配置文件
+
+# 文件上传配置 - 阿里云OSS
+file_upload:
+  # OSS Access Key ID
+  access_key_id:
+  # OSS Access Key Secret  
+  access_key_secret:
+  # OSS Endpoint（区域节点）
+  endpoint: "https://oss-cn-shenzhen.aliyuncs.com"
+  # OSS Bucket 名称
+  bucket_name: "y7converter2"
+  # 文件存储目录前缀（可选）
+  object_key_prefix: "audio/"
+  # 是否使用HTTPS
+  use_https: true
+  # 连接超时时间（毫秒）
+  connection_timeout: 30000
+  # Socket超时时间（毫秒）
+  socket_timeout: 60000
+  # 最大连接数
+  max_connections: 100
+
+# 语音识别配置
+speech_recognition:
+  # DashScope API 配置
+  dashscope:
+    # API Key（必须配置！可在此处设置或通过环境变量 DASHSCOPE_API_KEY 设置）
+    # 获取方式：登录阿里云控制台 -> DashScope -> API-KEY管理
+    api_key:
+    # 模型名称
+    model: "paraformer-v2"
+    # 语言提示（支持的语言代码）
+    language_hints: ["ja", "en"]
+
+# 字幕翻译配置
+translation:
+  # DashScope API 配置
+  dashscope:
+    # API Key（必须配置！可在此处设置或通过环境变量 DASHSCOPE_API_KEY 设置）
+    # 获取方式：登录阿里云控制台 -> DashScope -> API-KEY管理
+    api_key:
+    # 翻译模型名称
+    model: "qwen-mt-plus"
+    # 批处理大小（一次翻译的字幕条数）
+    batch_size: 10
+    # API调用间隔（毫秒）
+    api_delay: 1000
+  # 默认语言配置
+  default_languages:
+    # 默认源语言
+    source_lang: "auto"
+    # 默认目标语言
+    target_lang: "Chinese"
+  # 支持的语言列表
+  supported_languages:
+    - name: "中文"
+      code: "Chinese"
+    - name: "英文"
+      code: "English"
+    - name: "日文"
+      code: "Japanese"
+    - name: "韩文"
+      code: "Korean"
+    - name: "法文"
+      code: "French"
+    - name: "德文"
+      code: "German"
+    - name: "西班牙文"
+      code: "Spanish"
+    - name: "俄文"
+      code: "Russian"
+
+# 应用程序设置
+application:
+  # 临时文件目录
+  temp_dir: ""
+  # 是否启用调试模式
+  debug_mode: false
